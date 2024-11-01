@@ -17,12 +17,7 @@ const Head = () => {
   const [isSearchDisplay, setIsSearchDisplay] = useState(false);
   const cache = useSelector(store => store.search)
 
-  
-const API_KEY = "AIzaSyBs5tf-wHicgJsDm19_0054wAl3tH0mX-8";
-  const url =
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=${userSearchText}&&regionCode=IN&key=${API_KEY}`; 
-  
-  
+ 
   useEffect(() => {
 const timer = setTimeout(() => {
   if (cache[userSearchText]) {
@@ -37,9 +32,6 @@ const timer = setTimeout(() => {
   }, [userSearchText])
 
   const getSearchSuggestions = async () => {
-    const contentResponse = await fetch(url)
-    const data = await contentResponse.json()
-    console.log(data)
     const response = await fetch(YOUTUBE_SUGGESTION_API + userSearchText)
     const jsonData = await response.json()
     dispatch(addCache({

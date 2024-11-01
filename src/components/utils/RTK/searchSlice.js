@@ -9,7 +9,11 @@ const searchSlice = createSlice({
         addCache: (state, action) => {
             
             Object.assign(state, action.payload)
-            
+            if (Object.keys(state).length >= 5) {
+                const firstObj = Object.keys(state)[0]
+                delete state[firstObj];
+
+            }
         }
     }
 })
