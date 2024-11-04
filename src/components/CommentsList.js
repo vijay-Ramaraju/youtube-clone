@@ -11,13 +11,91 @@ const commentsData = [
         name: "@Manoj776",
         description:
           "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
-        replies: [],
+        replies: [
+          {
+            name: "@Manoj776",
+            description:
+              "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+            replies: [],
+          },
+          {
+            name: "@AmgG-m1z",
+            description:
+              "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+            replies: [
+              {
+                name: "@Manoj776",
+                description:
+                  "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+                replies: [],
+              },
+              {
+                name: "@AmgG-m1z",
+                description:
+                  "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+                replies: [],
+              },
+            ],
+          },
+        ],
       },
       {
         name: "@AmgG-m1z",
         description:
           "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
-        replies: [],
+        replies: [
+          {
+            name: "@Manoj776",
+            description:
+              "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+            replies: [],
+          },
+          {
+            name: "@AmgG-m1z",
+            description:
+              "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+            replies: [
+              {
+                name: "@Manoj776",
+                description:
+                  "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+                replies: [],
+              },
+              {
+                name: "@AmgG-m1z",
+                description:
+                  "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+                replies: [
+                  {
+                    name: "@Manoj776",
+                    description:
+                      "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+                    replies: [],
+                  },
+                  {
+                    name: "@AmgG-m1z",
+                    description:
+                      "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+                    replies: [
+                      {
+                        name: "@Manoj776",
+                        description:
+                          "They given perfect time in this movie, when u watch 2nd time you will understand! bcz 1st time I also felt same! and 2nd time lot of things are clear,.. and I think some of the deleted scenes will coming soon",
+                        replies: [],
+                      },
+                      {
+                        name: "@AmgG-m1z",
+                        description:
+                          "Manju shine because of nilufer (cosmetic business and skin care).Nilufer  skin care and cosmetics is in kochi. Nilufer have more car collections",
+                        replies: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
       },
     ],
   },
@@ -70,7 +148,7 @@ const commentsData = [
 
 const CommentsView = ({data}) => {
     return (
-      <div className="border-l bg-gray-100 m-1 p-2">
+      <div className=" bg-gray-100 m-1 p-2">
         <h1 className="font-bold text-xl">{data.name}</h1>
         <h1 className='text-lg '>{data.description}</h1>
       </div>
@@ -81,13 +159,13 @@ const CommentsView = ({data}) => {
 
 const CommentsDataList = ({data}) => {
     return (
-      <div className="ml-10">
-        {data.map((comment) => {
+      <div className="ml-10 border-l w-full">
+        {data.map((comment,index) => {
           return (
-            <>
+            <div key={index}>
               <CommentsView data={comment} />
               <CommentsDataList data={comment.replies} /> 
-            </>
+            </div>
           );
         })}
       </div>
@@ -96,14 +174,12 @@ const CommentsDataList = ({data}) => {
 
 const CommentsList = () => {
   return (
-    <div className='m-5 p-2'>
+    <div className='m-5 p-2 w-full overflow-scroll h-[1200px]'>
           <h1 className='text-xl font-bold '>Comments:</h1>
           <div>
-              {commentsData.map(comment => {
+              {commentsData.map((comment,index) => {
                   return (
-                      <>
-                          <CommentsDataList  data ={commentsData} />
-                      </>
+                          <CommentsDataList key={index} data ={commentsData} />
                   )
               })}
           </div>

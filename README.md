@@ -5,8 +5,8 @@
 *   used Redux for toggle sidebar( when I click on the hamburg menu then toggle the sidebar)
 *   for videos I have used YouTube video API 
 *
-*
-*
+* Developing a Live Chat feature :
+*   
 *
 *
 */ -->
