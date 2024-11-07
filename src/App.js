@@ -6,6 +6,7 @@ import Head from './components/Head';
 import { createBrowserRouter,RouterProvider} from 'react-router-dom';
 import MainContainer from './components/MainContainer';
 import WatchPage from './components/WatchPage';
+import UsersFetch from './components/UsersFetch'
 
 function App() {
   const appRouter = createBrowserRouter([{
@@ -19,6 +20,9 @@ function App() {
       {
         path: "/watch",
         element: <WatchPage />
+      }, {
+        path: 'user',
+        element:<UsersFetch/>
       }
     ]
   }])
